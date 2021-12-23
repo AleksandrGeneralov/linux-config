@@ -14,6 +14,8 @@
 :set noswapfile "didn't create swap file(creates, when edit)
 :set pastetoggle= "allow paste from clipboard at normal mode
 :set vb t_vb= "turn off audio bells
+:set background=dark
+:set termguicolors
 
 
 " --- Just Some Notes ---
@@ -28,8 +30,6 @@
 
 call plug#begin()
 
-Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
-
 Plug 'https://github.com/preservim/nerdtree' " NerdTree
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
@@ -39,21 +39,23 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
 
-Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
+Plug 'https://github.com/tpope/vim-commentary' " For Commenting command: gcc & gc
 
 
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 
 
-Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
-
-
-Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
-
-
 Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
 
-
+" Additional installation commands:
+"
+" sudo apt install npm
+" sudo npm install -g n
+" sudo n stable
+" sudo curl -sL install-node.vercel.app/lts | bash
+" cd ~/.config/nvim/plugged/coc.nvim
+" yarn install
+" yarn build
 Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
 
 
@@ -72,7 +74,7 @@ Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple c
 
 Plug 'sirver/ultisnips'
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 set encoding=UTF-8
@@ -110,5 +112,8 @@ let g:airline_symbols.linenr = ''
 :set completeopt-=preview " For No Previews
 
 " colorschemes params
-:colorscheme jellybeans
+" :colorscheme deep-space
+:colorscheme onehalfdark
 
+" Save on Ctrl-S
+nmap <c-s> :w<CR>
