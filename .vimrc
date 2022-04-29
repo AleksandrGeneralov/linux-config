@@ -339,6 +339,10 @@ if has("autocmd")
   augroup END
 endif
 
+" remove search highlights
+nnoremap <F3> :set hlsearch!<CR>
+
+
 " cd to the directory of the current buffer
 nnoremap <silent> <leader>cd :cd %:p:h<CR>
 
