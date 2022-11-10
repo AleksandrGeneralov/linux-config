@@ -51,34 +51,5 @@ class Functions:
         return __inner
 
 
-class PWA:
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def notion():
-        return "brave --profile-directory=Default --app=https://notion.so"
-
-    @staticmethod
-    def music():
-        return "brave --profile-directory=Default --app=https://music.youtube.com/"
-
-    @staticmethod
-    def spotify():
-        return "brave --profile-directory=Default --app=https://open.spotify.com/"
-
-    @staticmethod
-    def youtube():
-        return "brave --user-data-dir=Default --app=https://www.youtube.com"
-
-    @staticmethod
-    def calendar():
-        return "brave --profile-directory=Default --app=https://calendar.google.com/calendar/"
-
-    @staticmethod
-    def habitica():
-        return "brave --profile-directory=Default --app=https://habitica.com/"
-
-
 if __name__ == "__main__":
     print("This is an utilities module")

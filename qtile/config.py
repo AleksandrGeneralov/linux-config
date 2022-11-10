@@ -24,75 +24,39 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from libqtile import bar, layout, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Group, Key
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
 
 from widgets import Widgets
 from keybindings import KeyBindings, Mouse
+from layouts import Layouts
 
-mod = "mod4"
-terminal = "alacritty"
+from keybindings_const import MOD, SHIFT
 
 keys = KeyBindings().init_keys()
+layouts = Layouts().init_layouts()
+screens = Widgets().init_screen()
+mouse = Mouse().init_mouse()
+
 
 group_names = 'WWW DEV CODE SYS'.split()
 groups = [Group(name, layout='max') for name in group_names]
 
 for i, name in enumerate(group_names):
     indx = str(i + 1)
-    keys += [
-            Key([mod], indx, lazy.group[name].toscreen()),
-            Key([mod, 'shift'], indx, lazy.window.togtoup(name))]
+    keys += [Key([MOD], indx, lazy.group[name].toscreen()),
+             Key([MOD, SHIFT], indx, lazy.window.togtoup(name))]
 
-layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
-]
-
-
-
-screens = Widgets().init_screen()
-mouse = Mouse().init_mouse()
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
-floating_layout = layout.Floating(
-    float_rules=[
-        # Run the utility of `xprop` to see the wm class and name of an X client.
-        *layout.Floating.default_float_rules,
-        Match(wm_class="confirmreset"),  # gitk
-        Match(wm_class="makebranch"),  # gitk
-        Match(wm_class="maketag"),  # gitk
-        Match(wm_class="ssh-askpass"),  # ssh-askpass
-        Match(title="branchdialog"),  # gitk
-        Match(title="pinentry"),  # GPG key password entry
-    ]
-)
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
-
-# If things like steam games want to auto-minimize themselves when losing
-# focus, should we respect this or not?
 auto_minimize = True
-
-# When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this

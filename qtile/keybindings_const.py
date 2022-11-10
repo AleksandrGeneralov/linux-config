@@ -1,11 +1,3 @@
-from libqtile.confreader import ConfigError
-
-from functions import PWA
-
-from os.path import expanduser
-
-HOME = expanduser("~")
-
 # Define constants here
 TERMINAL = "alacritty"
 
@@ -32,6 +24,12 @@ RIGHT  = "l"
 DOWN   = "j"
 UP     = "k"
 
+# Change windows lenght
+GROW       = "i"
+SHRINK     = "m"
+NORMALIZE  = "n"
+MAXIMIZE   = "o"
+
 # Qtile shutdown/restart keys
 RESTART           = "r"
 SHUTDOWN          = "q"
@@ -42,53 +40,6 @@ KILL_ALL               = "x"
 KILL_ALL_MINUS_CURRENT = "c"
 
 
-
-
-
-# Basic wm bindings
-
-# All of these variables include the MOVEMENT_KEYS at the start
-
-# The key which the WM will use to move the layouts
-MOVEMENT_KEY   = MOD
-KILL_KEY       = MOD
-
-SWAP_KEY       = SHIFT
-FLOATING_KEY   = SHIFT
-
-
-
-# Floating layout
-TOOGLE_FLOATING = "f"
-TOOGLE_FULL     = "g"
-
-# Groups key
-# Move screen to next and previous group
-NEXT     = "k"
-PREVIOUS = "j"
-
-# Kill Functions
-
-
-# Rotates layouts
-
-TOOGLE_LAYOUT = "Tab"
-
-# Basic window manager movements
-
-
-
-
-
-# Group movement keys:
-GROUPS_KEY     = CONTROL
-SWAP_GROUP_KEY = SHIFT
-
-NEXT_GROUP = "period"
-PREV_GROUP = "comma"
-
-
-# ------------ Hardware Configs ------------
 HARDWARE_KEYS = [
     # (Modifier, Key, Command)
 
@@ -104,10 +55,11 @@ HARDWARE_KEYS = [
 
 
 APPS = [
+    # Open terminal
     ([MOD], RETURN, TERMINAL),
     
-    ([MOD], "b", "firefox"),
-    ([MOD], "c", "code"),
+    ([MOD, ALT], "s", "firefox"),
+    ([MOD, ALT], "c", "code"),
     ([MOD, ALT], "a", "pavucontrol"),
 
     # Media hotkeys

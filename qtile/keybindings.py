@@ -2,7 +2,7 @@ from libqtile.config import Click, Drag, Key
 from libqtile.lazy import lazy
 
 # Import the function that move the window to the next and prev group
-from functions import Functions, PWA
+from functions import Functions
 
 from keybindings_const import *
 
@@ -13,6 +13,7 @@ class KeyBindings:
 
     def init_keys(self):
         self.__init_move_keys()
+        self.__init_windows_keys()
         self.__init_shutdown_keys()
         self.__init_kill_keys()
         self.__init_spawn_keys()
@@ -40,6 +41,13 @@ class KeyBindings:
         self.keys += window
         self.keys += grow
 
+    def __init_windows_keys(self):
+        grow      = Key([MOD], GROW, lazy.layout.grow())
+        shrink    = Key([MOD], SHRINK, lazy.layout.shrink())
+        normalize = Key([MOD], NORMALIZE, lazy.layout.normalize())
+        maximize  = Key([MOD], MAXIMIZE, lazy.layout.maximize())
+        
+        self.keys += [grow, shrink, normalize, maximize] 
 
     def __init_shutdown_keys(self):
         self.keys += [Key([MOD, CONTROL], SHUTDOWN, lazy.shutdown()),

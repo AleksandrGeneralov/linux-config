@@ -153,8 +153,6 @@ class Widgets:
                 font=self.font,
                 foreground=self.colors[4],
                 background=self.colors[5],
-                mouse_callbacks={
-                    "Button1": lambda qtile: qtile.cmd_spawn(PWA.calendar())},
                 format="%B %d  [ %H:%M ]"
             ),
             widget.Sep(
