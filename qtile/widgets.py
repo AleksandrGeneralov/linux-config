@@ -1,8 +1,6 @@
 from libqtile import bar, widget
 from libqtile.config import Screen
 
-from functions import PWA
-
 # widget_defaults = dict(
 #     font="sans",
 #     fontsize=12,

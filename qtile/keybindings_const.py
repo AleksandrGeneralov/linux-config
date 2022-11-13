@@ -70,7 +70,7 @@ APPS = [
     ([],         PRINT, "flameshot gui --clipboard"),
     # Full screen screenshot
     ([ALT],      PRINT, "flameshot full --clipboar"),
-    
+    ([MOD], "s", "rofi -show drun")
 ]
 
 ##########################
